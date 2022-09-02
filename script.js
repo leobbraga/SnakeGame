@@ -12,11 +12,13 @@ let food = {
     x: Math.floor(Math.random() * 30 + 1) * box,
     y: Math.floor(Math.random() * 30 + 1) * box
 }
+ 
 
 function criarBG() {
-    context.fillStyle = 'lightblue';
+    context.fillStyle = "lightgreen";
     context.fillRect(0, 0 , 34 * box, 35 * box);
 }
+ var Game_score = 0;
 
 function criarCobrinha() {
     for(i=0; i < snake.length; i++) {
@@ -24,10 +26,12 @@ function criarCobrinha() {
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
-
+function updateDisplay(val) {
+    document.getElementById("score").innerHTML = val;
+}
 
 function drawfood() {
-    context.fillStyle = "red";
+    context.fillStyle = "green";
     context.fillRect(food.x, food.y, box, box);
 }
 
@@ -47,7 +51,7 @@ function iniciarJogo() {
     if(snake[0].y > 30 * box && direction == "down") snake[0].y = 0;
     if(snake[0].y < 0 && direction == "up") snake[0].y = 32 * box;
 
-    for(i = 1; i< snake.length; i++) {
+    for(i = 1; i < snake.length; i++) {
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(jogo)
             alert('GAME OVER!!!');
@@ -68,8 +72,10 @@ function iniciarJogo() {
     if(snakeX != food.x || snakeY != food.y) {
         snake.pop();
     }
+    
     else{food.x = Math.floor(Math.random() * 30 + 1) * box;
          food.y = Math.floor(Math.random() * 30 + 1) * box;
+         updateDisplay (++Game_score);
     }
     
     let newHead = {
@@ -79,7 +85,8 @@ function iniciarJogo() {
 
     snake.unshift(newHead);
 
+   
 }
 
-let jogo = setInterval(iniciarJogo, 120);
+let jogo = setInterval(iniciarJogo, 110);
  

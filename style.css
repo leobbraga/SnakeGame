@@ -3,7 +3,22 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url(https://thumbs.dreamstime.com/b/paisagem-dos-desenhos-animados-da-grama-verde-e-do-c%C3%A9u-azul-137394681.jpg);
 }
-canvas {
-    color: blue;
+.Score_Food {
+    border: 1px solid blue;
+    position: absolute;
+    text-align: center;
+    height: 120px;
+    width: 180px;
+    margin-left: 950px;
+    margin-bottom: 300px;
+    border-radius: 20px;
+}   
+
+h3, h2 {
+    font-size: 22px;
+    font-family:'Times New Roman', Times, serif
 }
+
+
